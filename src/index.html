@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    
+    <%= t.include("partials/_nav.html") %>
+
+    <%= t.include("partials/_gtm.html") %>
+
+     <div class="feature-player">
+      <div class="video-container aspect-outer pending">
+        <div class="aspect-inner">
+          <video
+            data-account="1509317113"
+            data-player="Nk8AFQkhe"
+            data-embed="default"
+            id="player"
+            class="video-js" controls>
+          </video>
+        </div>
+      </div>
+      <hr>
+      <h1>Videos of the year 2018</h1>
+      <p class="chatter">
+      Our favorite Seattle Times video stories and short documentaries of 2018
+    </p>
+       <div class="playlist-controls">
+        <div class="playlist-container loading"></div>
+        </div>
+    </div>
+
+<%= t.include("./partials/_dontMiss.html", { data: [
+        { link: "http://projects.seattletimes.com/2018/pictures-of-the-year/", image: "teaser1.jpg", head: "2018 Seattle Times Videos of the Year" },
+        { link: "https://www.seattletimes.com/pacific-nw-magazine/2017-pictures-of-the-year/", image: "teaser2.jpg", head: "2017 Seattle Times Pictures of the Year" },
+        { link: "http://projects.seattletimes.com/2017/videos-of-the-year/", image: "teaser3.jpg", head: "2017 Seattle Times Videos of the Year" },
+        { link: "https://projects.seattletimes.com/2016/pictures-of-the-year/", image: "teaser4.jpg", head: "2016 Seattle Times Pictures of the Year" }
+        
+       
+      ]}) %>
+
+    <%= t.include("partials/_ad.html", { type: "banner" }) %>
+
+
+
+    <%= t.include("partials/_navBottom.html") %>
+
+
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
