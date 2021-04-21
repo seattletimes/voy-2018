@@ -2,45 +2,51 @@
 <html>
   <head>
     <%= t.include("partials/_head.html", grunt.data.json) %>
-    
+
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    
+
     <%= t.include("partials/_nav.html") %>
 
     <%= t.include("partials/_gtm.html") %>
 
-     <div class="feature-player">
+    <h1>Videos of the year 2018</h1>
+    <p class="chatter">
+      Our favorite Seattle Times video stories and short documentaries of 2018
+    </p>
+
+     <div id="player" class="feature-player">
       <div class="video-container aspect-outer pending">
         <div class="aspect-inner">
-          <video
+          <!-- <video
             data-account="1509317113"
             data-player="Nk8AFQkhe"
             data-embed="default"
             id="player"
             class="video-js" controls>
-          </video>
+          </video> -->
+          <div id="firstVid"></div>
+          <div id="secondVid">
+          <script src="https://cdn.jwplayer.com/players/vH5rJNPD-UXknQA8J.js"></script>
         </div>
       </div>
-      <hr>
-      <h1>Videos of the year 2018</h1>
-      <p class="chatter">
-      Our favorite Seattle Times video stories and short documentaries of 2018
-    </p>
+
+      <hr class="divider">
+      <div class="mainVidStats">
+        <div id="title-hed">Mother-daughter powerlifters 'don't care what people have to say'</div>
+        <div id="title">Chisato DuBose, 54, and her daughter Sachie DuBose, 18, are world-champion power lifters and competitive bodybuilding athletes. As the women train and compete together, they build each other up. (Erika Schultz and Corinne Chin / The Seattle Times)</div>
+        <div id="title-link"><a id="story-link" href="https://www.seattletimes.com/video/" target="_blank" rel="nofollow noreferrer noopener">Read more &raquo;</a></div>
+      </div>
+
+
+
        <div class="playlist-controls">
         <div class="playlist-container loading"></div>
         </div>
     </div>
 
-<%= t.include("./partials/_dontMiss.html", { data: [
-        { link: "http://projects.seattletimes.com/2018/pictures-of-the-year/", image: "teaser1.jpg", head: "2018 Seattle Times Videos of the Year" },
-        { link: "https://www.seattletimes.com/pacific-nw-magazine/2017-pictures-of-the-year/", image: "teaser2.jpg", head: "2017 Seattle Times Pictures of the Year" },
-        { link: "http://projects.seattletimes.com/2017/videos-of-the-year/", image: "teaser3.jpg", head: "2017 Seattle Times Videos of the Year" },
-        { link: "https://projects.seattletimes.com/2016/pictures-of-the-year/", image: "teaser4.jpg", head: "2016 Seattle Times Pictures of the Year" }
-        
-       
-      ]}) %>
+
 
     <%= t.include("partials/_ad.html", { type: "banner" }) %>
 
@@ -49,7 +55,7 @@
     <%= t.include("partials/_navBottom.html") %>
 
 
-
+    <script src="https://cdn.jwplayer.com/libraries/oNGue23q.js"></script>
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
     <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
